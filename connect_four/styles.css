@@ -1,22 +1,19 @@
-html {
-	background-color: white;
-	background-repeat: no-repeat;
-  position: fixed;
-}
-
 body {
+	text-align: center;
 	font-family: 'Spirax', cursive;
-	background-repeat: no-repeat;
-	background-size: cover;
-  background-attachment: fixed;
-  color: #33b8bf;
 }
-
 
 #container {
-	text-align: center;
-	margin: 0 auto;
-	height: 100px;
-	color: #33b8bf;
-  border: 10px solid brown;
+	background-color: brown;
+	display: inline-block;
+}
+
+.column {
+	height:80px;
+	width: 80px;
+	display: inline-block;
+	background-color: white;
+	border-radius: 50%;
+	margin: 7px;
+
 }
