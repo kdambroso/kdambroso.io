@@ -1,0 +1,22 @@
+html {
+	background-color: white;
+	background-repeat: no-repeat;
+  position: fixed;
+}
+
+body {
+	font-family: 'Spirax', cursive;
+	background-repeat: no-repeat;
+	background-size: cover;
+  background-attachment: fixed;
+  color: #33b8bf;
+}
+
+
+#container {
+	text-align: center;
+	margin: 0 auto;
+	height: 100px;
+	color: #33b8bf;
+  border: 10px solid brown;
+}
