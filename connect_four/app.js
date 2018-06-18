@@ -1,7 +1,7 @@
 console.log('Are you ready to connect?')
 
 
-$(() => {
+
 
 //Create Board
 class ConnectFour {
@@ -22,36 +22,5 @@ class ConnectFour {
   }
 }
 
+
 const connect4 = new ConnectFour('#connect4')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
