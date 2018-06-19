@@ -2,18 +2,25 @@ body {
 	text-align: center;
 	font-family: 'Spirax', cursive;
 }
+#header1{
+	font-size: 30px
+}
 
-#container {
-	background-color: brown;
+#connect4 {
+	background: url('wooden-texture-pack-3d-model.jpg') center center no-repeat;
 	display: inline-block;
 }
 
 .column {
-	height:80px;
-	width: 80px;
+	height:70px;
+	width: 70px;
 	display: inline-block;
 	background-color: white;
 	border-radius: 50%;
-	margin: 7px;
+	margin: 5px;
 
+}
+
+.player1 {
+	background-color: red;
 }

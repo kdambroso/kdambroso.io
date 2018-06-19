@@ -1,22 +1,49 @@
 console.log('Are you ready to connect?')
 
+
 $(()=> {
 
-
-//Create Board
-
-for (let row=0; row< 6 ;row++){
-  const $divR = $('<div>').addClass('row')
-  $('#container').append($divR)
-  $divR.on('mouseenter','.column', ()=>{
-   console.log('here')
- })
-}
-for (let column=0; column < 7 ;column++){
-    const $divC = $('<div>').addClass('column')
-    .attr('data-column', column)
-    $('.row').append($divC)
+class Connect4 {
+  constructor(selector) {
+    this.rows = 6;
+    this.columns = 7;
+    this.selector = selector;
+    this.createGrid();
+    this.eventListeners();
   }
+  createGrid() {
+    const $board = $(this.selector);
+    for(let row = 0; row < this.rows; row++) {
+      const $row = $('<div>').addClass('row');
+      for (let column = 0; column < this.columns; column++) {
+        const $column = $('<div>').addClass('column empty')
+        .attr('data-column', column)
+        .attr('data-row', row)
+        $row.append($column);
+      }
+      $board.append($row);
+    }
+  }
+
+
+  eventListeners(){
+    const $board = $(this.selector);
+
+
+    // $board.on('mouseover', '.column.empty', ()=> {
+    $board.on('click', event, ()=> {
+      // const column = $(this).data('column');
+      console.log('here', event.target);
+    })
+
+  }
+
+
+}
+
+
+
+const connectFour = new Connect4('#connect4')
 
 // Setup Event Listeners
 
