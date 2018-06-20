@@ -30,62 +30,42 @@ class Connect4 {
   } //end gameboard
 
 
-//function to check row below event target
-// const $('lastEmpty') = (columnNum, rowNum) => {
-//   if(columnNum < 3){
-//     console.log('less than 3')
-//   } else {
-//     console.log('greater than 3')
-//   }
-// }
-
 
 
 // Setup Event Listeners
-  eventListeners(){
-      const $board = $(this.selector);
+eventListeners(){
+  const $board = $(this.selector);
+//function to check row below event target
+  const lastEmpty = (columnNum, rowNum) => {
+    if(columnNum <= 3){
+      console.log('less than 3')
+    } else {
+      console.log('greater than 3')
+    }
+  }
 
 //Finds column and row index
-      $board.on('click', '.column.empty', ()=> {
-        console.log('here', event.target);
-        changePlayer()
-        if (player1 === true) {
-          $(event.target).removeClass('empty').addClass('player1')
-          let columnNum= $(event.target).attr('data-column')
-          let rowNum= $(event.target).attr('data-row')
-          console.log(columnNum, rowNum)
+  $board.on('click', '.column.empty', () => {
+    console.log('here', event.target);
+    changePlayer()
+
+    if (player1 === true) {
+      $(event.target).removeClass('empty').addClass('player1')
+  //run function to check row below event target
+      let columnNum= $(event.target).attr('data-column')
+      let rowNum= $(event.target).attr('data-row')
+      console.log(columnNum, rowNum)
+      lastEmpty(columnNum, rowNum)
 
 
-            if(columnNum < 3){
-              console.log('less than 3')
-            } else {
-              console.log('greater than 3')
-            }
-
-
-
-          //run function to check row below event target
-
-          // lastEmpty(columnNum, rowNum)
-        } else if (player1 === false){
-          $(event.target).removeClass('empty').addClass('player2')
-          //run function to check row below event target
-          let columnNum= $(event.target).attr('data-column') // keep data column
-          let rowNum= $(event.target).attr('data-row') // to check below +1
-          if(columnNum < 3){
-            console.log('less than 3')
-          } else {
-            console.log('greater than 3')
-          }
-        }
-
-
-
-
-          // $(event.target).removeClass('empty').addClass('player1')
-          // console.log('here', event.target)
-        // }
-})
+    } else if (player1 === false){
+      $(event.target).removeClass('empty').addClass('player2')
+  //run function to check row below event target
+      let columnNum= $(event.target).attr('data-column') // keep data column
+      let rowNum= $(event.target).attr('data-row') // to check below +1
+      lastEmpty(columnNum, rowNum)
+    }
+  })
 }
 }
 // Game Play Logic:
@@ -94,7 +74,7 @@ class Connect4 {
 //alternate clicks between player1 and player2
 
   let player1 = null;
-  const changePlayer = () =>{
+  const changePlayer = () => {
     if(player1) {
         $(event.target).hasClass('player1');
         player1  = false;
@@ -105,7 +85,7 @@ class Connect4 {
 
     if (player1 === true) {
       p1()
-    } else if (player1 === false){
+    } else if (player1 === false) {
       p2()
     }
 
