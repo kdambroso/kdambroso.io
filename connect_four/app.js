@@ -9,7 +9,7 @@ class Connect4 {
     this.columns = 7;
     this.selector = selector;
     this.createGrid();
-    this.eventListeners();
+    this.gameLogic();
 
   }
   createGrid() {
@@ -33,37 +33,51 @@ class Connect4 {
 
 
 // Setup Event Listeners
-eventListeners(){
+gameLogic(){
   const $board = $(this.selector);
-//function to check row below event target
-  const lastEmpty = (columnNum, rowNum) => {
-    if(columnNum <= 3){
-      console.log('less than 3')
-    } else {
-      console.log('greater than 3')
+//function to check row below event target for lastEmpty Cell to drop token into
+  const lastEmpty = (columnNum) => {
+    const cells = $(`.column[data-column='${columnNum}']`);
+    console.log(cells)
+    for (let i = cells.length-1; i>=0; i-- ){
+      const $cell = $(cells[i]);
+      if ($cell.hasClass('empty')) {
+        console.log($cell)
+        return $cell;
+      }
     }
-  }
+    return null;
+    }
+
 
 //Finds column and row index
   $board.on('click', '.column.empty', () => {
-    console.log('here', event.target);
+    // console.log('here', event.target);
+
+
     changePlayer()
 
     if (player1 === true) {
-      $(event.target).removeClass('empty').addClass('player1')
+
   //run function to check row below event target
       let columnNum= $(event.target).attr('data-column')
       let rowNum= $(event.target).attr('data-row')
+      const $lastEmpty = lastEmpty(columnNum)
       console.log(columnNum, rowNum)
-      lastEmpty(columnNum, rowNum)
+      // lastEmpty(columnNum)
 
+
+      $lastEmpty.removeClass('empty').addClass('player1')
 
     } else if (player1 === false){
-      $(event.target).removeClass('empty').addClass('player2')
+
   //run function to check row below event target
       let columnNum= $(event.target).attr('data-column') // keep data column
       let rowNum= $(event.target).attr('data-row') // to check below +1
-      lastEmpty(columnNum, rowNum)
+      const $lastEmpty = lastEmpty(columnNum)
+      console.log(columnNum, rowNum)
+      // lastEmpty(columnNum, rowNum)
+      $lastEmpty.removeClass('empty').addClass('player2')
     }
   })
 }
@@ -97,6 +111,10 @@ eventListeners(){
 
 // Check for Winner:
 
+
+// restart () {
+//   this.createGrid();
+// }
 //A player wins when four tokens, from the same player, are arranged either horizontally (all on the same row),
 
 
