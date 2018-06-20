@@ -69,65 +69,7 @@ gameLogic(){
       const $lastEmpty = lastEmpty(columnNum)
       $lastEmpty.removeClass('empty').addClass('player1')
       // console.log($("[data-column= '0'][data-row='0']"));
-
-    //vertical check
-      for (let x=0; x<=4; x++){
-        for (let y=0; y<=5; y++) {
-          let a= x+1
-          let b= x+2
-          let c= x+3
-          if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass('player1') &&
-          $("[data-column= "+y+"][data-row= "+a+"]").hasClass('player1') && $("[data-column= "+y+"][data-row= "+b+"]").hasClass('player1') && $("[data-column= "+y+"][data-row= "+c+"]").hasClass('player1') ){
-            console.log('WINNER');
-          }
-        }
-      }
-
-      //horizontal check
-        for (let x=0; x<=6; x++){
-          for (let y=0; y<=3; y++) {
-            let a= y+1
-            let b= y+2
-            let c= y+3
-            if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass('player1') &&
-            $("[data-column= "+a+"][data-row= "+x+"]").hasClass('player1') && $("[data-column= "+b+"][data-row= "+x+"]").hasClass('player1') && $("[data-column= "+c+"][data-row= "+x+"]").hasClass('player1') ){
-              console.log('WINNER');
-            }
-          }
-        }
-        //diagonal up check
-          for (let x=0; x<=4; x++){
-            for (let y=3; y<=6; y++) {
-              let a= y-1
-              let b= y-2
-              let c= y-3
-              let d= x+1
-              let e= x+2
-              let f= x+3
-              if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass('player1') &&
-              $("[data-column= "+a+"][data-row= "+d+"]").hasClass('player1') && $("[data-column= "+b+"][data-row= "+e+"]").hasClass('player1') && $("[data-column= "+c+"][data-row= "+f+"]").hasClass('player1') ){
-                console.log('WINNER');
-              }
-            }
-          }
-          //diagonal down check
-            for (let x=0; x<=4; x++){
-              for (let y=0; y<=3; y++) {
-                let a= y+1
-                let b= y+2
-                let c= y+3
-                let d= x+1
-                let e= x+2
-                let f= x+3
-                if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass('player1') &&
-                $("[data-column= "+a+"][data-row= "+d+"]").hasClass('player1') && $("[data-column= "+b+"][data-row= "+e+"]").hasClass('player1') && $("[data-column= "+c+"][data-row= "+f+"]").hasClass('player1') ){
-                  console.log('WINNER');
-                }
-              }
-            }
-
-
-
+checkWin()
 
     } else if (player1 === false){
 
@@ -138,6 +80,7 @@ gameLogic(){
 
 
       $lastEmpty.removeClass('empty').addClass('player2')
+      checkWin()
     }
   })
 }
@@ -165,18 +108,82 @@ gameLogic(){
 
 
 
+
 // Check for Winner:
 
+const checkWin = ()=> {
+let currentPlayer = null;
+if (player1 === true) {
+  currentPlayer = 'player1'
+
+} else {
+   currentPlayer = 'player2'
+}
 
 
-
+    //vertical check
+      for (let x=0; x<=4; x++){
+        for (let y=0; y<=5; y++) {
+          let a= x+1
+          let b= x+2
+          let c= x+3
+          if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
+          $("[data-column= "+y+"][data-row= "+a+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+b+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+c+"]").hasClass(currentPlayer) ){
+            console.log('WINNER');
+          }
+        }
+      }
 //A player wins when four tokens, from the same player, are arranged either horizontally (all on the same row),
+//horizontal check
+        for (let x=0; x<=6; x++){
+          for (let y=0; y<=3; y++) {
+            let a= y+1
+            let b= y+2
+            let c= y+3
+            if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
+            $("[data-column= "+a+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+x+"]").hasClass(currentPlayer) ){
+              console.log('WINNER');
+            }
+          }
+        }
+        //diagonal up check
+          for (let x=0; x<=4; x++){
+            for (let y=3; y<=6; y++) {
+              let a= y-1
+              let b= y-2
+              let c= y-3
+              let d= x+1
+              let e= x+2
+              let f= x+3
+              if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
+              $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer) ){
+                console.log('WINNER');
+              }
+            }
+          }
+          //diagonal down check
+            for (let x=0; x<=4; x++){
+              for (let y=0; y<=3; y++) {
+                let a= y+1
+                let b= y+2
+                let c= y+3
+                let d= x+1
+                let e= x+2
+                let f= x+3
+                if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
+                $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer) ){
+                  console.log('WINNER');
+                }
+              }
+            }
 
 
-// vertically (all in the same column),
+}
 
 
-//or diagonally (each token one column left or right, one row up or down, from another token), consecutively (no breaks).Once a player reaches a winning condition, the game should stop, and the program should show the message "Player won!"
+
+
+
 
 
 
