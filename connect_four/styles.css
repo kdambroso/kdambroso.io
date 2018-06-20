@@ -1,13 +1,19 @@
 body {
 	text-align: center;
 	font-family: 'Spirax', cursive;
+	/* background: url('P1020529.jpg') center center no-repeat;
+	position: relative;
+	background-size: cover;
+	margin-top: 140px;
+	color: white; */
 }
 #header1{
 	font-size: 30px
+	color: white;
 }
 
 #connect4 {
-	background: url('wooden-texture-pack-3d-model.jpg') center center no-repeat;
+	background-color: brown;
 	display: inline-block;
 }
 
@@ -22,6 +28,8 @@ body {
 }
 
 .player1 {
+	/* background: url('giphy.gif') center center no-repeat;
+	background-size: contain; */
 	background-color: red;
 }
 .player2 {
