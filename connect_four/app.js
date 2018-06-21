@@ -2,7 +2,7 @@ console.log('Are you ready to connect?')
 
 
 $(()=> {
-
+let gameOver = false;
 class Connect4 {
   constructor(selector) {
     this.rows = 6;
@@ -34,6 +34,7 @@ class Connect4 {
     restart() {
       $('#restart').on('click',() => {
         this.createGrid()
+        gameOver = false
       })
 
   } //end gameboard
@@ -64,11 +65,15 @@ gameLogic(){
 
 
 //Finds column and row index
-  $board.on('click', '.column.empty', () => {
+$board.on('click', '.column.empty', () => {
     // console.log('here', event.target);
-
-
     changePlayer()
+
+console.log(gameOver)
+  if (gameOver === true) {
+      alert('Game Over')
+
+  } else if (gameOver === false) {
 
     if (player1 === true) {
       //if gameOver is not true
@@ -80,9 +85,9 @@ gameLogic(){
 
       $lastEmpty.removeClass('empty').addClass('player1')
       // console.log($("[data-column= '0'][data-row='0']"));
-checkWin()
+      checkWin()
 
-    } else if (player1 === false){
+    } else if (player1 === false) {
 
   //run function to check row below event target
       let columnNum= $(event.target).attr('data-column') // keep data column
@@ -94,6 +99,7 @@ checkWin()
 
       checkWin()
       }
+    }
     })
   }
 }
@@ -126,25 +132,22 @@ checkWin()
 // Check for Winner:
 
 const checkWin = ()=> {
+  console.log(gameOver);
 let currentPlayer = null;
-let gameOver = false;
+
 if (player1 === true) {
   currentPlayer = 'player1'
   $("#currentPlayer").text('It\'s Player 2 Turn')
+  $("#playerWinner").text('Player 1 Won')
 
 } else {
    currentPlayer = 'player2'
    $("#currentPlayer").text('It\'s Player 1 Turn')
+   $("#playerWinner").text('Player 2 Won')
 }
 
 //A player wins when four tokens, from the same player, are arranged either vertically (all on the same row)
     //vertical check
-
-    if (gameOver !== false){
-
-      alert('Game Over')
-      gameOver = true
-    } else if (gameOver === false){
 
       for (let x=0; x<=4; x++){
         for (let y=0; y<=5; y++) {
@@ -152,11 +155,11 @@ if (player1 === true) {
           let b= x+2
           let c= x+3
           if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
-          $("[data-column= "+y+"][data-row= "+a+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+b+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+c+"]").hasClass(currentPlayer) ){
-            alert(currentPlayer +' is the WINNER');
+          $("[data-column= "+y+"][data-row= "+a+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+b+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+c+"]").hasClass(currentPlayer)) {
+          openModal()
             gameOver = true
-            console.log(gameOver)
-            return true
+            // console.log(gameOver)
+
 
 
           }
@@ -170,9 +173,10 @@ if (player1 === true) {
             let b= y+2
             let c= y+3
             if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
-            $("[data-column= "+a+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+x+"]").hasClass(currentPlayer) ){
-              alert(currentPlayer +' is the WINNER');
+            $("[data-column= "+a+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+x+"]").hasClass(currentPlayer)) {
+              openModal()
               gameOver = true
+
 
             }
           }
@@ -187,9 +191,10 @@ if (player1 === true) {
               let e= x+2
               let f= x+3
               if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
-              $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer) ){
-                alert(currentPlayer +' is the WINNER');
+              $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer)) {
+                openModal()
                 gameOver= true
+
 
               }
             }
@@ -204,23 +209,38 @@ if (player1 === true) {
                 let e= x+2
                 let f= x+3
                 if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
-                $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer) ){
-                  alert(currentPlayer +' is the WINNER');
+                $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer)) {
+                  openModal()
                   gameOver= true
 
-                }
+
               }
             }
-
-
-            }
-
-
-
-}
+          }
+          console.log(gameOver)
+        }
 
 
 
+
+        //Grabbing Elements
+
+        const $modal = $('#modal');
+        const $closeBtn = $('#close');
+
+        //Event Handlers
+        const openModal = () => {
+          $modal.css('display', 'block');
+        }
+
+        const closeModal = () => {
+          $modal.css('display', 'none');
+        }
+
+        //Event Listeners
+
+
+        $closeBtn.on('click', closeModal);
 
 
 
