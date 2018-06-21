@@ -7,16 +7,26 @@ body {
 	margin-top: 70px;
 
 }
+.container {
+    position: relative;
+    text-align: left;
+    color: white;
+}
 #header1{
-	background: url('il_570xN.1540037209_8x6d.png')center center no-repeat;
+	/* background: black; */
 	background-size:cover;
 	width: 300px;
 	height: auto;
 	/* border-radius: 30%; */
+	text-shadow: 2px 2px rgb(0,0,0);
 	font-size: 30px;
-	color: white;
+	color: #efe845;
+	position: absolute;
+  top: 35px;
+  left: 65px;
 }
 #instructions{
+	text-shadow: 2px 2px rgb(0,0,0);
 	font-size: 25px;
 	color: white;
 	padding: 2%;

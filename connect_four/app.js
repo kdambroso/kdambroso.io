@@ -36,6 +36,7 @@ class Connect4 {
       $('#restart').on('click',() => {
         this.createGrid()
         gameOver = false
+        openCells= 42
       })
 
   } //end gameboard
@@ -142,12 +143,12 @@ let currentPlayer = null;
 
 if (player1 === true) {
   currentPlayer = 'player1'
-  $("#currentPlayer").text('It\'s Player 2 Turn')
+  $("#currentPlayer").text('It\'s Player 2 Turn').css('color', '#3bcc64')
   $("#playerWinner").text('Player 1 Won')
 
 } else {
    currentPlayer = 'player2'
-   $("#currentPlayer").text('It\'s Player 1 Turn')
+   $("#currentPlayer").text('It\'s Player 1 Turn').css('color', '#efe845')
    $("#playerWinner").text('Player 2 Won')
 }
 
