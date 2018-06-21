@@ -3,6 +3,7 @@ console.log('Are you ready to connect?')
 
 $(()=> {
 let gameOver = false;
+let openCells = 42
 class Connect4 {
   constructor(selector) {
     this.rows = 6;
@@ -71,7 +72,7 @@ $board.on('click', '.column.empty', () => {
 
 console.log(gameOver)
   if (gameOver === true) {
-      alert('Game Over, Press Restart t play again!')
+      alert('Game Over, Press Restart to play again!')
 
   } else if (gameOver === false) {
 
@@ -82,8 +83,10 @@ console.log(gameOver)
       let columnNum= $(event.target).attr('data-column')
       let rowNum= $(event.target).attr('data-row')
       const $lastEmpty = lastEmpty(columnNum)
-
+//places token
       $lastEmpty.removeClass('empty').addClass('player1')
+//reduces how many available cells are left
+      openCells = openCells -1
       // console.log($("[data-column= '0'][data-row='0']"));
       checkWin()
 
@@ -94,8 +97,10 @@ console.log(gameOver)
       let rowNum= $(event.target).attr('data-row') // to check below +1
       const $lastEmpty = lastEmpty(columnNum)
 
-
+//places token
       $lastEmpty.removeClass('empty').addClass('player2')
+//reduces how many available cells are left
+      openCells = openCells -1
 
       checkWin()
       }
@@ -150,7 +155,7 @@ if (player1 === true) {
     //vertical check
 
       for (let x=0; x<=4; x++){
-        for (let y=0; y<=5; y++) {
+        for (let y=0; y<=6; y++) {
           let a= x+1
           let b= x+2
           let c= x+3
@@ -217,7 +222,9 @@ if (player1 === true) {
               }
             }
           }
-          console.log(gameOver)
+          if (openCells === 1){
+              gameOver= true
+          }
         }
 
 

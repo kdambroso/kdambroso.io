@@ -8,9 +8,11 @@ body {
 
 }
 #header1{
-	background-color: blue;
-	width: 270px;
-	border-radius: 30%;
+	background: url('il_570xN.1540037209_8x6d.png')center center no-repeat;
+	background-size:cover;
+	width: 300px;
+	height: auto;
+	/* border-radius: 30%; */
 	font-size: 30px;
 	color: white;
 }
@@ -38,7 +40,7 @@ body {
 .player1 {
 	background: url('animated-fish-gif-3.gif') center center no-repeat;
 	background-size: contain;
-	
+
 }
 .player2 {
 	background: url('giphy (1).gif') center center no-repeat;
