@@ -1,6 +1,6 @@
 body {
 	text-align: center;
-	font-family: 'Spirax', cursive;
+	font-family: 'Acme', sans-serif;
 	background: url('fish-aquarium-wallpaper-aquarium-animated-1-fish-aquarium-screensaver-free-download.jpg') center center no-repeat;
 	position: relative;
 	background-size: cover;
@@ -8,6 +8,9 @@ body {
 
 }
 #header1{
+	background-color: blue;
+	width: 270px;
+	border-radius: 30%;
 	font-size: 30px;
 	color: white;
 }

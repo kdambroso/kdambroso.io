@@ -10,12 +10,13 @@ class Connect4 {
     this.selector = selector;
     this.createGrid();
     this.gameLogic();
+    // this.playerMove();
     this.restart();
   }
-  createGrid() {
+    createGrid() {
   //creates 6x7 grid (6 rows, 7 columns) gameboard with divs
-    const $board = $(this.selector);
-    $board.empty()
+      const $board = $(this.selector);
+      $board.empty()
 
   //generates rows with for loop
     for(let row = 0; row < this.rows; row++) {
@@ -76,6 +77,7 @@ gameLogic(){
       let columnNum= $(event.target).attr('data-column')
       let rowNum= $(event.target).attr('data-row')
       const $lastEmpty = lastEmpty(columnNum)
+
       $lastEmpty.removeClass('empty').addClass('player1')
       // console.log($("[data-column= '0'][data-row='0']"));
 checkWin()
@@ -89,6 +91,7 @@ checkWin()
 
 
       $lastEmpty.removeClass('empty').addClass('player2')
+
       checkWin()
       }
     })
@@ -110,8 +113,10 @@ checkWin()
     }
 
     if (player1 === true) {
+
       p1()
     } else if (player1 === false) {
+
       p2()
     }
 
@@ -122,15 +127,24 @@ checkWin()
 
 const checkWin = ()=> {
 let currentPlayer = null;
+let gameOver = false;
 if (player1 === true) {
   currentPlayer = 'player1'
+  $("#currentPlayer").text('It\'s Player 2 Turn')
 
 } else {
    currentPlayer = 'player2'
+   $("#currentPlayer").text('It\'s Player 1 Turn')
 }
 
 //A player wins when four tokens, from the same player, are arranged either vertically (all on the same row)
     //vertical check
+
+    if (gameOver !== false){
+
+      alert('Game Over')
+      gameOver = true
+    } else if (gameOver === false){
 
       for (let x=0; x<=4; x++){
         for (let y=0; y<=5; y++) {
@@ -140,6 +154,11 @@ if (player1 === true) {
           if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
           $("[data-column= "+y+"][data-row= "+a+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+b+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+c+"]").hasClass(currentPlayer) ){
             alert(currentPlayer +' is the WINNER');
+            gameOver = true
+            console.log(gameOver)
+            return true
+
+
           }
         }
       }
@@ -153,6 +172,8 @@ if (player1 === true) {
             if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
             $("[data-column= "+a+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+x+"]").hasClass(currentPlayer) ){
               alert(currentPlayer +' is the WINNER');
+              gameOver = true
+
             }
           }
         }
@@ -168,6 +189,8 @@ if (player1 === true) {
               if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
               $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer) ){
                 alert(currentPlayer +' is the WINNER');
+                gameOver= true
+
               }
             }
           }
@@ -183,9 +206,15 @@ if (player1 === true) {
                 if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
                 $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer) ){
                   alert(currentPlayer +' is the WINNER');
+                  gameOver= true
+
                 }
               }
             }
+
+
+            }
+
 
 
 }
