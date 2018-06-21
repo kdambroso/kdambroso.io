@@ -4,12 +4,17 @@ body {
 	background: url('fish-aquarium-wallpaper-aquarium-animated-1-fish-aquarium-screensaver-free-download.jpg') center center no-repeat;
 	position: relative;
 	background-size: cover;
-	margin-top: 140px;
-	color: white;
+	margin-top: 70px;
+
 }
 #header1{
-	font-size: 30px
+	font-size: 30px;
 	color: white;
+}
+#instructions{
+	font-size: 25px;
+	color: white;
+	padding: 2%;
 }
 
 #connect4 {

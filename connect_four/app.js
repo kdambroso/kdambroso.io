@@ -10,11 +10,13 @@ class Connect4 {
     this.selector = selector;
     this.createGrid();
     this.gameLogic();
-
+    this.restart();
   }
   createGrid() {
   //creates 6x7 grid (6 rows, 7 columns) gameboard with divs
     const $board = $(this.selector);
+    $board.empty()
+
   //generates rows with for loop
     for(let row = 0; row < this.rows; row++) {
       const $row = $('<div>').addClass('row');
@@ -27,6 +29,12 @@ class Connect4 {
       }
       $board.append($row);
     }
+  }
+    restart() {
+      $('#restart').on('click',() => {
+        this.createGrid()
+      })
+
   } //end gameboard
 
 
@@ -51,6 +59,7 @@ gameLogic(){
     }
     return null;
     }
+
 
 
 //Finds column and row index
@@ -81,9 +90,9 @@ checkWin()
 
       $lastEmpty.removeClass('empty').addClass('player2')
       checkWin()
-    }
-  })
-}
+      }
+    })
+  }
 }
 // Game Play Logic:
 
@@ -120,8 +129,9 @@ if (player1 === true) {
    currentPlayer = 'player2'
 }
 
-
+//A player wins when four tokens, from the same player, are arranged either vertically (all on the same row)
     //vertical check
+
       for (let x=0; x<=4; x++){
         for (let y=0; y<=5; y++) {
           let a= x+1
@@ -129,11 +139,11 @@ if (player1 === true) {
           let c= x+3
           if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
           $("[data-column= "+y+"][data-row= "+a+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+b+"]").hasClass(currentPlayer) && $("[data-column= "+y+"][data-row= "+c+"]").hasClass(currentPlayer) ){
-            console.log('WINNER');
+            alert(currentPlayer +' is the WINNER');
           }
         }
       }
-//A player wins when four tokens, from the same player, are arranged either horizontally (all on the same row),
+
 //horizontal check
         for (let x=0; x<=6; x++){
           for (let y=0; y<=3; y++) {
@@ -142,7 +152,7 @@ if (player1 === true) {
             let c= y+3
             if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
             $("[data-column= "+a+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+x+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+x+"]").hasClass(currentPlayer) ){
-              console.log('WINNER');
+              alert(currentPlayer +' is the WINNER');
             }
           }
         }
@@ -157,7 +167,7 @@ if (player1 === true) {
               let f= x+3
               if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
               $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer) ){
-                console.log('WINNER');
+                alert(currentPlayer +' is the WINNER');
               }
             }
           }
@@ -172,7 +182,7 @@ if (player1 === true) {
                 let f= x+3
                 if ($("[data-column= "+y+"][data-row= "+x+"]").hasClass(currentPlayer) &&
                 $("[data-column= "+a+"][data-row= "+d+"]").hasClass(currentPlayer) && $("[data-column= "+b+"][data-row= "+e+"]").hasClass(currentPlayer) && $("[data-column= "+c+"][data-row= "+f+"]").hasClass(currentPlayer) ){
-                  console.log('WINNER');
+                  alert(currentPlayer +' is the WINNER');
                 }
               }
             }
@@ -188,22 +198,8 @@ if (player1 === true) {
 
 
 
-// restart () {
-//   this.createGrid();
-// }
-
 
 const connectFour = new Connect4('#connect4')
-
-
-
-
-
-
-
-
-
-
 
 
 
