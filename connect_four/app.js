@@ -71,7 +71,7 @@ $board.on('click', '.column.empty', () => {
 
 console.log(gameOver)
   if (gameOver === true) {
-      alert('Game Over')
+      alert('Game Over, Press Restart t play again!')
 
   } else if (gameOver === false) {
 
