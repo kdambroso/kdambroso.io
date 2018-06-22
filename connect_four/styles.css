@@ -6,50 +6,54 @@ body {
 	background-size: cover;
 	margin-top: 20px;
 	margin-bottom: 200px;
-
 }
+
 h1 {
 	color: #236010;
 	font-size: 40px;
 	text-shadow: 3px 3px rgb(255,255,255);
 }
+/* Player Signs */
 .container {
     position: relative;
     text-align: left;
     color: white;
 }
+
 .container2 {
     position: relative;
     text-align: right;
     color: white;
 }
-#header1{
+
+#header1 {
 	/* background: black; */
+	font-family: 'Permanent Marker', cursive;
 	background-size:cover;
 	width: 300px;
 	height: auto;
 	/* border-radius: 30%; */
 	text-shadow: 2px 2px rgb(0,0,0);
 	font-size: 28px;
-	color: #efe845;
+	color: #0a61db;
 	position: absolute;
   top: 35px;
-  left: 60px;
+  left: 98px;
 }
-#header3{
-	/* background: black; */
+
+#header3 {
 	background-size:cover;
 	width: 300px;
 	height: auto;
-	/* border-radius: 30%; */
 	text-shadow: 2px 2px rgb(0,0,0);
 	font-size: 22px;
 	color: white;
 	position: absolute;
-  top: 43px;
-  right: 45px;
+  top: 25px;
+  right: 73px;
 }
-#instructions{
+/* Game Board */
+#instructions {
 	text-shadow: 2px 2px rgb(255,255,255);
 	font-size: 25px;
 	color: #236010;
@@ -59,6 +63,7 @@ h1 {
 #connect4 {
 	/* background-color: rgba(135,206,250,0.2); */
 	display: inline-block;
+	min-width: 600px;
 }
 
 .column {
@@ -70,19 +75,17 @@ h1 {
 	margin: 5px;
 
 }
-
+/* Player Tokens  */
 .player1 {
-	background: url('animated-fish-gif-3.gif') center center no-repeat;
+	background: url('animated-emperor-fish.gif') center center no-repeat;
 	background-size: contain;
-
 }
+
 .player2 {
-	background: url('giphy (1).gif') center center no-repeat;
+	background: url('clownfishanimation-28.gif') center center no-repeat;
 	background-size: contain;
 }
-
-
-
+/* Win State Pop Up */
 #modal {
 	display: none;
 	background-color: rgba(0,0,0,0.4);

@@ -1,7 +1,10 @@
-console.log('Are you ready to connect?')
+// console.log('Are you ready to connect?')
 
+//========= Four Roe =========//
+  //== A Connect Four Game==//
 
 $(()=> {
+//========= Global Variables =========//
 let gameOver = false;
 let openCells = 42;
 let player1Wins = 0;
@@ -13,7 +16,6 @@ class Connect4 {
     this.selector = selector;
     this.createGrid();
     this.gameLogic();
-    // this.playerMove();
     this.restart();
   }
     createGrid() {
@@ -44,10 +46,6 @@ class Connect4 {
 
   } //end gameboard
 
-
-
-
-// Setup Event Listeners
 gameLogic(){
   const $board = $(this.selector);
 //During each turn, a player places a token in one of the columns. The token slides to the "bottom" of the column.
@@ -65,27 +63,25 @@ gameLogic(){
       }
     }
     return null;
-    }
+  }
 
 
 
-//Finds column and row index
+//========= On Click Runs Game =========//
 $board.on('click', '.column.empty', () => {
     // console.log('here', event.target);
     changePlayer()
 
-// console.log(gameOver)
+    // console.log(gameOver)
   if (gameOver === true) {
-
 
       alert('Game Over, Press Restart to play again!')
 
   } else if (gameOver === false) {
 
     if (player1 === true) {
-      //if gameOver is not true
 
-  //run function to check row below event target
+//run function to check row below event target
       let columnNum= $(event.target).attr('data-column')
       let rowNum= $(event.target).attr('data-row')
       const $lastEmpty = lastEmpty(columnNum)
@@ -115,7 +111,7 @@ $board.on('click', '.column.empty', () => {
     })
   }
 }
-// Game Play Logic:
+//========= Game Play Logic =========//
 
 //There are two players that alternate turns.
 //alternate clicks between player1 and player2
@@ -141,7 +137,7 @@ $board.on('click', '.column.empty', () => {
 
 
 
-// Check for Winner:
+//========= Check for Winner =========//
 
 const checkWin = ()=> {
   // console.log(gameOver);
@@ -149,13 +145,13 @@ let currentPlayer = null;
 
 if (player1 === true) {
   currentPlayer = 'player1'
-  $("#currentPlayer").text('It\'s Player 2\'s Turn').css('color', '#3bcc64')
+  $("#currentPlayer").text('Player 2').css('color', '#db640a')
   $("#playerLoser").text('Player 2')
   $("#playerWinner").text('Player 1 Wins')
 
 } else {
    currentPlayer = 'player2'
-   $("#currentPlayer").text('It\'s Player 1\'s Turn').css('color', '#efe845')
+   $("#currentPlayer").text('Player 1').css('color', '#0a61db')
    $("#playerLoser").text('Player 1')
    $("#playerWinner").text('Player 2 Wins')
 }
@@ -168,7 +164,8 @@ const winCount= ()=>{
 
       }
 //A player wins when four tokens, from the same player, are arranged either vertically (all on the same row)
-    //vertical check
+
+//========= vertical check =========//
 
       for (let x=0; x<=4; x++){
         for (let y=0; y<=6; y++) {
@@ -188,7 +185,7 @@ const winCount= ()=>{
         }
       }
 
-//horizontal check
+//========= horizontal check =========//
         for (let x=0; x<=6; x++){
           for (let y=0; y<=3; y++) {
             let a= y+1
@@ -203,7 +200,7 @@ const winCount= ()=>{
             }
           }
         }
-        //diagonal up check
+//========= diagonal up check =========//
           for (let x=0; x<=4; x++){
             for (let y=3; y<=6; y++) {
               let a= y-1
@@ -223,7 +220,7 @@ const winCount= ()=>{
               }
             }
           }
-          //diagonal down check
+//========= diagonal down check=========//
             for (let x=0; x<=4; x++){
               for (let y=0; y<=3; y++) {
                 let a= y+1
@@ -250,7 +247,7 @@ const winCount= ()=>{
 
 
 
-        //Grabbing Elements
+//========= Grabbing Elements =========//
 
         const $modal = $('#modal');
         const $closeBtn = $('#close');
@@ -264,21 +261,15 @@ const winCount= ()=>{
           $modal.css('display', 'none');
         }
 
-        //Event Listeners
+//========= Event Listeners =========//
 
 
         $closeBtn.on('click', closeModal);
 
 
-
-
-
-
+//========= new constructor =========//
 
 const connectFour = new Connect4('#connect4')
-
-
-
 
 
 })
