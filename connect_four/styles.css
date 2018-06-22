@@ -18,6 +18,11 @@ h1 {
     text-align: left;
     color: white;
 }
+.container2 {
+    position: relative;
+    text-align: right;
+    color: white;
+}
 #header1{
 	/* background: black; */
 	background-size:cover;
@@ -29,7 +34,20 @@ h1 {
 	color: #efe845;
 	position: absolute;
   top: 35px;
-  left: 65px;
+  left: 60px;
+}
+#header3{
+	/* background: black; */
+	background-size:cover;
+	width: 300px;
+	height: auto;
+	/* border-radius: 30%; */
+	text-shadow: 2px 2px rgb(0,0,0);
+	font-size: 22px;
+	color: white;
+	position: absolute;
+  top: 43px;
+  right: 45px;
 }
 #instructions{
 	text-shadow: 2px 2px rgb(255,255,255);
@@ -80,7 +98,7 @@ h1 {
 }
 
 #modal-textbox {
-	background-color: #E4F8F9;
+	background-color: white;
 	height: 150px;
 	width: 320px;
 	padding: 2%;
