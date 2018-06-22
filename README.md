@@ -26,6 +26,15 @@ A way to keep playing if the game is not over
 
 Multiple rounds to play - a round must begin, end, and there must be a way to check if the game should continue or the overall game is won or lost
 
+
+Future Goals:
+Optimize for mobile
+
+Add Player Name Customization
+
+Add Grid Size Customization
+
+
 Play Connect Four Now:
 https://kdambroso.github.io/kdambroso.io/connect_four/
 
