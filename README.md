@@ -1,7 +1,8 @@
-# kdambroso.io                                           Program Version 1.0  6/22/2018
+# kdambroso.io           Four Roe (aka Connect Four)                                        
+#Program Version 1.0                       6/22/2018
 ---------------------------------------------------------------------------------------------
 
-Four Roe (aka Connect Four)
+
 Fun fact: Connect Four is also known as Captain's Mistress, Four Up, Plot Four, Find Four, Four in a Row, or Four in a Line.
 
       "Connect four of your checkers in a row while preventing your opponent from doing the same. But, look out-- your opponent can sneak up on you and win the game!"
