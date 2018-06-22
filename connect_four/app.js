@@ -143,12 +143,14 @@ let currentPlayer = null;
 
 if (player1 === true) {
   currentPlayer = 'player1'
-  $("#currentPlayer").text('It\'s Player 2 Turn').css('color', '#3bcc64')
+  $("#currentPlayer").text('It\'s Player 2\'s Turn').css('color', '#3bcc64')
+  $("#playerLoser").text('Player 2')
   $("#playerWinner").text('Player 1 Won')
 
 } else {
    currentPlayer = 'player2'
-   $("#currentPlayer").text('It\'s Player 1 Turn').css('color', '#efe845')
+   $("#currentPlayer").text('It\'s Player 1\'s Turn').css('color', '#efe845')
+   $("#playerLoser").text('Player 1')
    $("#playerWinner").text('Player 2 Won')
 }
 

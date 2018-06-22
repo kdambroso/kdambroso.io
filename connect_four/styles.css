@@ -1,11 +1,17 @@
 body {
 	text-align: center;
 	font-family: 'Acme', sans-serif;
-	background: url('fish-aquarium-wallpaper-aquarium-animated-1-fish-aquarium-screensaver-free-download.jpg') center center no-repeat;
+	background: url('4742a38d613d97be6200f1154f11a254.jpg') center center no-repeat;
 	position: relative;
 	background-size: cover;
-	margin-top: 70px;
+	margin-top: 20px;
+	margin-bottom: 200px;
 
+}
+h1 {
+	color: #236010;
+	font-size: 40px;
+	text-shadow: 3px 3px rgb(255,255,255);
 }
 .container {
     position: relative;
@@ -19,16 +25,16 @@ body {
 	height: auto;
 	/* border-radius: 30%; */
 	text-shadow: 2px 2px rgb(0,0,0);
-	font-size: 30px;
+	font-size: 28px;
 	color: #efe845;
 	position: absolute;
   top: 35px;
   left: 65px;
 }
 #instructions{
-	text-shadow: 2px 2px rgb(0,0,0);
+	text-shadow: 2px 2px rgb(255,255,255);
 	font-size: 25px;
-	color: white;
+	color: #236010;
 	padding: 2%;
 }
 
@@ -74,7 +80,7 @@ body {
 }
 
 #modal-textbox {
-	background-color: white;
+	background-color: #E4F8F9;
 	height: 150px;
 	width: 320px;
 	padding: 2%;
